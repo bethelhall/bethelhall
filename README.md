@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @bethelhall
-- 👀 I’m interested in
+- 👀 I’m interested in Machine Learning and it's application in healthcare
 - 🌱 I’m currently pursuing PhD in CS
 - 📫 Feel free to reach me at bhall2@stevens.edu
 
