@@ -6,322 +6,812 @@
   <title>Bethel Hall</title>
   <meta name="author" content="Jon Barron">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <!-- Google Font for distinctive header -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Inline Custom Styles -->
+  <style>
+    /* ────────────────────────────────────────────────────────────── */
+    /* 1) Color Variables & Base Typography */
+    :root {
+      --bg-white: #ffffff;
+      --bg-light: #f5f5f5;
+      --text-color: #222222;
+      --accent-color: #d35400;
+      --border-color: #e0e0e0;
+    }
+
+    html {
+      font-size: 18px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Lato', Arial, sans-serif;
+      font-size: 1rem;               /* 18px base */
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-white);
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    /* 2) Container Utility */
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 0;
+    }
+
+    /* 3) Alternating Section Backgrounds */
+    section:nth-of-type(odd) {
+      background-color: var(--bg-white);
+    }
+
+    section:nth-of-type(even) {
+      background-color: var(--bg-light);
+    }
+
+    /* 4) Sticky Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--bg-white);
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 12px 16px;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      font-size: 1rem;
+      background-color: var(--bg-white);
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 400;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 50%;
+      background-color: var(--accent-color);
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* 5) Dark Mode Toggle */
+    #darkModeToggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      background: var(--accent-color);
+      color: #ffffff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 200;
+      font-size: 1rem;
+    }
+
+    .dark-mode {
+      --bg-white: #2b2b2b;
+      --bg-light: #1e1e1e;
+      --text-color: #dddddd;
+      --border-color: #444444;
+      --accent-color: #ffac33;
+      background-color: var(--bg-white);
+    }
+
+    /* 6) Intro Section */
+    .intro-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    .intro-left,
+    .intro-right {
+      flex: 1 1 300px;
+    }
+
+    .intro-left {
+      text-align: center;
+    }
+
+    .headshot {
+      width: 180px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 24px;
+      transition: transform 0.3s ease;
+      display: inline-block;
+      background-color: var(--bg-light);
+    }
+
+    .headshot:hover {
+      transform: scale(1.05);
+    }
+
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;      /* 45px */
+      font-weight: 700;
+      color: var(--text-color);
+      margin: 0;
+      width: 0;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 16ch;
+      }
+    }
+
+    /* 7) Greeting & Amharic Name */
+    #greeting {
+      margin: 16px 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;     /* 22.5px */
+      color: var(--text-color);
+    }
+
+    .amharic-name {
+      margin: 16px 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--text-color);
+    }
+
+    /* 8) Links */
+    a {
+      position: relative;
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 50%;
+      background-color: var(--accent-color);
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* 9) Section Headings */
+    .section-title {
+      font-size: 2rem;        /* 36px */
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+      border-bottom: 4px solid var(--accent-color);
+      display: inline-block;
+    }
+
+    /* 10) Cards (Publications, News) */
+    .card {
+      padding: 24px;
+      border-left: 4px solid var(--accent-color);
+      background-color: var(--bg-white);
+      margin-bottom: 24px;
+      transition: background-color 0.2s ease;
+    }
+
+    .card:hover {
+      background-color: var(--bg-light);
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* 11) Projects Grid + Badges */
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .project-card {
+      flex: 1 1 260px;
+      border: 3px solid var(--accent-color);
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: var(--bg-white);
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--text-color);
+      background-color: var(--bg-light);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background-color: var(--bg-light);
+    }
+
+    .project-info {
+      padding: 16px;
+      background-color: var(--bg-white);
+    }
+
+    .project-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;    /* 27px */
+      color: var(--accent-color);
+      margin: 12px 0;
+    }
+
+    .project-info p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-color);
+      margin: 0 0 12px;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 8px 16px;
+      background: var(--accent-color);
+      color: #ffffff;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .project-link:hover {
+      background: var(--text-color);
+    }
+
+    .tech-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      margin: 0 4px 8px 0;
+      background: var(--accent-color);
+      color: #ffffff;
+      border-radius: 6px;
+      font-size: 0.875rem;   /* 15.75px */
+      font-weight: 600;
+    }
+
+    /* 12) Hobbies (emoji‐icons) */
+    .hobbies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hobby-card {
+      flex: 1 1 180px;
+      background-color: var(--bg-white);
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .hobby-card:hover {
+      background-color: var(--bg-light);
+      transform: translateY(-4px);
+    }
+
+    .hobby-icon {
+      width: 72px;
+      height: 72px;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.25rem;    /* 40.5px */
+      margin: 0 auto 16px;
+    }
+
+    .hobby-text {
+      margin: 0;
+      font-weight: 600;
+      color: var(--text-color);
+      font-size: 1.125rem;   /* 20.25px */
+    }
+
+    /* 13) Scroll-to-Top Button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--accent-color);
+      color: #ffffff;
+      border: none;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      padding: 0;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #scrollTopBtn.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* 14) Footer */
+    footer {
+      text-align: center;
+      padding: 24px 0;
+      background: var(--bg-light);
+      color: var(--text-color);
+      font-size: 0.875rem;   /* 15.75px */
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* 15) Fade-in on Scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 16) Responsive Adjustments */
+    @media (max-width: 800px) {
+      html { font-size: 16px; }   /* slightly smaller on narrower screens */
+      body { line-height: 1.5; }
+
+      .intro-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .intro-left,
+      .intro-right {
+        width: 100%;
+      }
+
+      .projects-grid,
+      .hobbies-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .project-card {
+        width: 100%;
+      }
+
+      .hobby-card {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
-<body style="background: #ffffff; font-family: Arial, sans-serif; color: #222; margin:0; padding:0;">
-  <!-- Intro Section, slightly narrower -->
-  <table
-    style="width:100%; max-width:700px; border:0; border-spacing:0; border-collapse:separate; margin:0 auto; background:#fff;">
-    <tbody>
-      <tr>
-        <!-- LEFT COLUMN: Headshot + Name + Amharic + Title + Affiliations -->
-        <td style="padding:32px; width:40%; vertical-align:top; text-align:center; border-right:1px solid #ececec;">
-          <img src="images/beth.jpg" alt="Photo of Bethel Hall"
-            style="width:180px; height:240px; object-fit:cover; border-radius:50%; margin-bottom:16px; display:block; margin-left:auto; margin-right:auto;">
-          
-          <!-- Main Name -->
-          <p style="margin:0; font-family:'Merriweather', serif; font-size:1.7em; font-weight:700; line-height:1.2; color:#333;">
-            Bethel Roger Hall
-          </p>
-          
+<body>
+  <!-- 1) Sticky Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#bio">Bio</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#hobbies">Hobbies</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- 2) Dark Mode Toggle -->
+  <button id="darkModeToggle">🌙</button>
+
+  <!-- 3) Intro Section -->
+  <section id="bio">
+    <div class="container">
+      <div class="intro-grid">
+        <!-- LEFT COLUMN -->
+        <div class="intro-left">
+          <img src="images/beth.jpg" alt="Photo of Bethel Hall" class="headshot" />
+
+          <!-- Typewriter Name -->
+          <p class="typewriter" id="nameText"></p>
+
+          <!-- Smart Greeting -->
+          <p id="greeting"></p>
+
           <!-- Amharic Name -->
-          <p style="margin:8px 0 16px 0; font-family:'Merriweather', serif; font-size:1em; font-weight:500; color:#555; line-height:1.2;">
-            ቤቴል ሮጀር ሆል
-          </p>
-          
+          <p class="amharic-name">ቤቴል ሮጀር ሆል</p>
+
           <!-- Title -->
-          <p style="margin:0 0 16px 0; font-size:0.95em; font-weight:500; color:#555;">
-            CS Ph.D. Student
+          <p style="font-size:1rem; color: var(--text-color); margin-bottom:16px;">CS Ph.D. Student</p>
+
+          <!-- Affiliations -->
+          <p style="font-size:1rem; margin:0;">
+            <a href="https://www.stevens.edu/" target="_blank" rel="noopener noreferrer">Stevens Institute of Technology</a><br />
+            <a href="https://william-eiers.github.io/" target="_blank" rel="noopener noreferrer">Advisor: Prof. William Eiers</a>
           </p>
-          
-          <!-- Affiliations as a link -->
-          <p style="margin:0; font-size:0.9em; line-height:1.4;">
-            <a href="https://www.stevens.edu/" target="_blank" rel="noopener noreferrer"
-               style="color:#3366cc; text-decoration:none; border-bottom:2px solid transparent; padding:0 0.2em;"
-               onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">
-              Stevens Institute of Technology
-            </a><br>
-            <a href="https://william-eiers.github.io/" target="_blank" rel="noopener noreferrer"
-               style="color:#3366cc; text-decoration:none; border-bottom:2px solid transparent; padding:0 0.2em;"
-               onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">
-              Advisor: Prof. William Eiers
-            </a>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="intro-right">
+          <h2 class="section-title fade-in">Biography</h2>
+          <p class="fade-in" style="font-size:1rem; line-height:1.6; margin-top:0;">
+            I’m a CS Ph.D. student at <a href="https://www.stevens.edu/" target="_blank" rel="noopener noreferrer">Stevens Institute of Technology</a>,
+            advised by <a href="https://william-eiers.github.io/" target="_blank" rel="noopener noreferrer">Prof. William Eiers</a>. My research centers on neurosymbolic methods—
+            integrating large language models into formal verification workflows. I work at the intersection of machine
+            learning, program synthesis, and automated reasoning to build systems that are both intelligent and verifiable.
           </p>
-        </td>
+        </div>
+      </div>
 
-        <!-- RIGHT COLUMN: Biography -->
-        <td style="padding:32px; width:60%; vertical-align:top; text-align:left;">
-          <!-- Biography -->
-          <h2 style="margin-top:0; font-family:'Merriweather', serif; font-size:1.4em; font-weight:700; color:#222; border-bottom:3px solid #3366cc; padding-bottom:8px; margin-bottom:16px;">
-            Biography
-          </h2>
-          <p style="margin-top:0; margin-bottom:24px; font-size:1em; line-height:1.5; color:#444;">
-            I’m a CS Ph.D. student at 
-            <a href="https://www.stevens.edu/" target="_blank" rel="noopener noreferrer"
-              style="color:#3366cc; text-decoration:none; border-bottom:2px solid transparent; padding:0 0.2em;"
-              onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">
-              Stevens Institute of Technology
-            </a>, advised by 
-            <a href="https://william-eiers.github.io/" target="_blank" rel="noopener noreferrer"
-              style="color:#3366cc; text-decoration:none; border-bottom:2px solid transparent; padding:0 0.2em;"
-              onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">
-              Prof. William Eiers
-            </a>. My research centers on neurosymbolic methods, focusing on integrating large language models into
-            formal verification workflows. I work at the intersection of machine learning, program synthesis, and automated
-            reasoning to build systems that are both intelligent and verifiable.
+      <!-- Contact Links -->
+      <div style="text-align:center; margin-top:32px; font-size:1rem;" id="contact">
+        <a href="mailto:bethelroger33@gmail.com">Email</a>
+        <span style="color:#888; padding:0 0.5em;">/</span>
+        <a href="data/Resume-BHall.pdf">CV</a>
+        <span style="color:#888; padding:0 0.5em;">/</span>
+        <a href="https://x.com/bethel_roger" target="_blank">Twitter</a>
+        <span style="color:#888; padding:0 0.5em;">/</span>
+        <a href="https://github.com/bethelhall" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4) Selected Publications -->
+  <section id="publications">
+    <div class="container">
+      <h2 class="section-title fade-in">Selected Publications</h2>
+      <div class="fade-in">
+        <div class="card">
+          <p>
+            <strong>Title of Publication 1</strong><br />
+            <span style="font-size:0.875rem; color:#555;">Authors.</span><br />
+            <em style="color:#555; font-size:0.875rem;">Conference</em>, Year.<br /><br />
+            [<a href="#">PDF</a>] [<a href="#">arXiv</a>] [<a href="#">Code</a>] [<a href="#">Project</a>]
           </p>
-        </td>
-      </tr>
-      
-      <!-- FULL-WIDTH ROW: Contact Links (spans entire width) -->
-      <tr>
-        <td colspan="2" style="padding:16px 32px; text-align:center; border-top:1px solid #ececec;">
-          <a href="mailto:bethelroger33@gmail.com"
-            style="color:#3366cc; text-decoration:none; padding:0 1em; font-size:0.95em; border-bottom:2px solid transparent;"
-            onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">
-            Email
-          </a>
-          <span style="color:#888; padding:0 0.5em;">/</span>
-          <a href="data/Resume-BHall.pdf" style="color:#3366cc; text-decoration:none; padding:0 1em; font-size:0.95em; border-bottom:2px solid transparent;"
-            onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">
-            CV
-          </a>
-          <span style="color:#888; padding:0 0.5em;">/</span>
-          <a href="https://www.linkedin.com/in/bethelhall/" style="color:#3366cc; text-decoration:none; padding:0 1em; font-size:0.95em; border-bottom:2px solid transparent;"
-            onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">
-            LinkedIn
-          </a>
-          <span style="color:#888; padding:0 0.5em;">/</span>
-          <a href="https://x.com/bethel_roger" style="color:#3366cc; text-decoration:none; padding:0 1em; font-size:0.95em; border-bottom:2px solid transparent;"
-            onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">
-            Twitter
-          </a>
-          <span style="color:#888; padding:0 0.5em;">/</span>
-          <a href="https://github.com/bethelhall" style="color:#3366cc; text-decoration:none; padding:0 1em; font-size:0.95em; border-bottom:2px solid transparent;"
-            onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">
-            GitHub
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </div>
 
-  <!-- Selected Publications Section (narrower) -->
-  <table style="width:100%; max-width:700px; margin:24px auto 0 auto; border:0; border-spacing:0; padding:16px; background:#fff; border-radius:8px;">
-    <tbody>
-      <tr>
-        <td style="background:#fff; padding:12px 16px;">
-          <h2 style="margin:0; font-family:'Merriweather', serif; font-size:1.4em; border-bottom:3px solid #3366cc; padding-bottom:6px; margin-bottom:12px; color:#333;">
-            Selected Publications
-          </h2>
-        </td>
-      </tr>
-      <tr>
-        <td style="background:#fff; padding:0;">
-          <table style="width:100%; border:0; border-spacing:0px 16px; border-collapse:separate;">
-            <tbody>
-              <tr>
-                <td style="padding:12px; border-left:3px solid #3366cc; background-color:#f8faff;">
-                  <p style="margin:0; line-height:1.5; color:#444;">
-                    <strong style="font-size:1.05em; color:#222;">Title of Publication 1</strong><br>
-                    <span style="font-size:0.85em; color:#555;">Authors.</span><br>
-                    <em style="color:#555;">Conference</em>, Year.<br>
-                    <br>
-                    [<a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                        onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">PDF</a>]
-                    [<a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                        onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">arXiv</a>]
-                    [<a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                        onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">Code</a>]
-                    [<a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                        onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">Project</a>]
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding:12px; border-left:3px solid #3366cc; background-color:#f8faff;">
-                  <p style="margin:0; line-height:1.5; color:#444;">
-                    <strong style="font-size:1.05em; color:#222;">Title of Publication 2</strong><br>
-                    <span style="font-size:0.85em; color:#555;">Authors.</span><br>
-                    <em style="color:#555;">Conference</em>, Year.<br>
-                    <br>
-                    [<a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                        onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">PDF</a>]
-                    [<a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                        onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">arXiv</a>]
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding:12px; border-left:3px solid #3366cc; background-color:#f8faff;">
-                  <p style="margin:0; line-height:1.5; color:#444;">
-                    <strong style="font-size:1.05em; color:#222;">Title of Publication 3</strong><br>
-                    <span style="font-size:0.85em; color:#555;">Authors.</span><br>
-                    <em style="color:#555;">Journal</em>, Year.<br>
-                    <br>
-                    [<a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                        onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">PDF</a>]
-                    [<a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                        onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">Bibtex</a>]
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding:12px; border-left:3px solid #3366cc; background-color:#f8faff;">
-                  <p style="margin:0; line-height:1.5; color:#444;">
-                    <strong style="font-size:1.05em; color:#222;">Title of Publication 4</strong><br>
-                    <span style="font-size:0.85em; color:#555;">Authors.</span><br>
-                    <em style="color:#555;">Workshop</em>, Year.<br>
-                    <br>
-                    [<a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                        onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">PDF</a>]
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding:12px; border-left:3px solid #3366cc; background-color:#f8faff;">
-                  <p style="margin:0; line-height:1.5; color:#444;">
-                    <strong style="font-size:1.05em; color:#222;">Title of Publication 5</strong><br>
-                    <span style="font-size:0.85em; color:#555;">Authors.</span><br>
-                    <em style="color:#555;">Conference</em>, Year.<br>
-                    <br>
-                    [<a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                        onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">PDF</a>]
-                    [<a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                        onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">arXiv</a>]
-                    [<a href="#" style="color:#3366cc; text-decoration:none;; padding:0 0.3em; border-bottom:2px solid transparent;"
-                        onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">Slides</a>]
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        <div class="card">
+          <p>
+            <strong>Title of Publication 2</strong><br />
+            <span style="font-size:0.875rem; color:#555;">Authors.</span><br />
+            <em style="color:#555; font-size:0.875rem;">Conference</em>, Year.<br /><br />
+            [<a href="#">PDF</a>] [<a href="#">arXiv</a>]
+          </p>
+        </div>
 
-  <!-- Research Videos & Talks Section (narrower) -->
-  <table style="width:100%; max-width:700px; margin:0 auto 24px auto; border:0; border-spacing:0; padding:16px; background:#fff; border-radius:8px;">
-    <tbody>
-      <tr>
-        <td style="background:#fff; padding:12px 16px;">
-          <h2 style="margin:0; font-family:'Merriweather', serif; font-size:1.4em; border-bottom:3px solid #3366cc; padding-bottom:6px; margin-bottom:12px; color:#333;">
-            Research and Recorded Talks
-          </h2>
-        </td>
-      </tr>
-      <tr>
-        <td style="background:#fff; padding:0;">
-          <table style="width:100%; border:0; border-spacing:0px 10px; border-collapse:separate;">
-            <tr>
-              <!-- Left: image or video thumbnail -->
-              <td style="padding:12px; width:30%; vertical-align:middle; text-align:center;">
-                <img src="images/shinobi.jpg"
-                  style="width:100%; max-width:200px; height:140px; object-fit:cover; border-radius:8px;"
-                  alt="Composable Benchmarking Thumbnail">
-              </td>
+        <div class="card">
+          <p>
+            <strong>Title of Publication 3</strong><br />
+            <span style="font-size:0.875rem; color:#555;">Authors.</span><br />
+            <em style="color:#555; font-size:0.875rem;">Journal</em>, Year.<br /><br />
+            [<a href="#">PDF</a>] [<a href="#">Bibtex</a>]
+          </p>
+        </div>
 
-              <!-- Right: left-aligned text content -->
-              <td style="padding:
-12px; width:70%; vertical-align:middle; text-align:left; font-size:1em; line-height:1.5em; color:#444;">
-                <p style="margin:0; font-weight:bold; font-size:1.1em; line-height:1.3em; color:#222;">
-                  Composable Benchmarking
-                </p>
-                <p style="margin:0; color:#555;">
-                  Bethel R. Hall, William Eiers<br>
-                  <em>NeurIPS 2024 Workshop on Compositionality in AI</em>
-                </p>
-                <p style="margin-top:0.5em;">
-                  <a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                    onmouseover="this.style.borderColor='#3366cc';" onmouseout="this
-.style.borderColor='transparent';">
-                    [Project Page]
-                  </a>
-                  <a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                    onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">
-                    [arXiv]
-                  </a>
-                  <a href="#" style="color:#3366cc; text-decoration:none; padding:0 0.3em; border-bottom:2px solid transparent;"
-                    onmouseover="this.style.borderColor='#3366cc';" onmouseout="this.style.borderColor='transparent';">
-                    [Slides]
-                  </a>
-                </p>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        <div class="card">
+          <p>
+            <strong>Title of Publication 4</strong><br />
+            <span style="font-size:0.875rem; color:#555;">Authors.</span><br />
+            <em style="color:#555; font-size:0.875rem;">Workshop</em>, Year.<br /><br />
+            [<a href="#">PDF</a>]
+          </p>
+        </div>
 
-  <!-- News Section (narrower) -->
-  <table style="width:100%; max-width:700px; margin:0 auto 24px auto; border:0; border-spacing:0; padding:16px; background:#fff; border-radius:8px;">
-    <tbody>
-      <tr>
-        <td style="background:#fff; padding:12px 16px;">
-          <h2 style="margin:0; font-family:'Merriweather', serif; font-size:1.4em; border-bottom:3px solid #3366cc; padding-bottom:6px; margin-bottom:12px; color:#333;">
-            News
-          </h2>
-        </td>
-      </tr>
-      <tr>
-        <td style="background:#fff; padding:0;">
-          <table style="width:100%; border:0; border-spacing:0px 8px; border-collapse:separate;">
-            <tbody>
-              <tr style="background-color:#f8faff;">
-                <td style="padding:12px 8px; font-size:1em; vertical-align:middle; color:#444;">
-                  📰 June 2025: Gave a talk at NeurIPS Workshop on Trustworthy AI
-                </td>
-              </tr>
-              <tr>
-                <td style="padding:12px 8px; font-size:1em; vertical-align:middle; color:#444;">
-                  🚀 May 2025: Released our LLM+Verification dataset on GitHub
-                </td>
-              </tr>
-              <tr style="background-color:#f8faff;">
-                <td style="padding:12px 8px; font-size:1em; vertical-align:middle; color:#444;">
-                  🏆 March 2025: Paper accepted at ICLR!
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        <div class="card">
+          <p>
+            <strong>Title of Publication 5</strong><br />
+            <span style="font-size:0.875rem; color:#555;">Authors.</span><br />
+            <em style="color:#555; font-size:0.875rem;">Conference</em>, Year.<br /><br />
+            [<a href="#">PDF</a>] [<a href="#">arXiv</a>] [<a href="#">Slides</a>]
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Footer Section (in body) -->
-  <footer style="text-align:center; padding:16px; background:#f8f8f8; color:#666; font-size:0.9em; margin-top:24px;">
-    <p style="margin:0;">© <span id="current-year"></span> Bethel Roger Hall. All rights reserved.</p>
-    <p style="margin:0;">Last updated: <span id="last-updated"></span></p>
+  <!-- 5) Research & Talks -->
+  <section>
+    <div class="container">
+      <h2 class="section-title fade-in">Research and Recorded Talks</h2>
+      <div class="fade-in" style="display:flex; flex-wrap:wrap; gap:32px; align-items:center;">
+        <div style="flex:1 1 220px; text-align:center;">
+          <img src="images/shinobi.jpg" alt="Composable Benchmarking Thumbnail"
+               style="width:100%; max-width:220px; border-radius:12px; background-color: var(--bg-light);" />
+        </div>
+        <div style="flex:2 1 320px; text-align:left;">
+          <h3 style="font-size:1.5rem; margin:0; color:var(--text-color);">Composable Benchmarking</h3>
+          <p style="margin:8px 0 0; font-size:0.9375rem; color:#555;">
+            Bethel R. Hall, William Eiers<br />
+            <em>NeurIPS 2024 Workshop on Compositionality in AI</em>
+          </p>
+          <p style="margin-top:12px;">
+            <a href="#">[Project Page]</a>
+            <a href="#" style="margin-left:16px;">[arXiv]</a>
+            <a href="#" style="margin-left:16px;">[Slides]</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6) News -->
+  <section>
+    <div class="container">
+      <h2 class="section-title fade-in">News</h2>
+      <div class="fade-in">
+        <div class="card">
+          <p>📰 June 2025: Gave a talk at NeurIPS Workshop on Trustworthy AI</p>
+        </div>
+        <div class="card">
+          <p>📰 June 2025: Gave a talk at NeurIPS Workshop on Trustworthy AI</p>
+        </div>
+        <div class="card">
+          <p>📰 June 2025: Gave a talk at NeurIPS Workshop on Trustworthy AI</p>
+        </div>
+        <div class="card">
+          <p>🚀 May 2025: Released our LLM+Verification dataset on GitHub</p>
+        </div>
+        <div class="card">
+          <p>🏆 March 2025: Paper accepted at ICLR!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7) Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title fade-in">Projects</h2>
+      <ul class="projects-grid fade-in">
+        <!-- Project 1 -->
+        <li class="project-card">
+          <a href="projects/project1.html">
+            <img src="images/project1-thumb.jpg" alt="Project 1 Thumbnail" class="project-img" />
+            <div class="project-info">
+              <div class="project-title">Neurosymbolic Verifier</div>
+              <div style="margin:8px 0;">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Coq</span>
+                <span class="tech-badge">LLM</span>
+              </div>
+              <p>A pipeline blending GPT-4 with Coq proofs to verify program properties.</p>
+              <a href="projects/project1.html" class="project-link">View Project</a>
+            </div>
+          </a>
+        </li>
+
+        <!-- Project 2 -->
+        <li class="project-card">
+          <a href="projects/project2.html">
+            <img src="images/project2-thumb.jpg" alt="Project 2 Thumbnail" class="project-img" />
+            <div class="project-info">
+              <div class="project-title">SynthBench</div>
+              <div style="margin:8px 0;">
+                <span class="tech-badge">Benchmarking</span>
+                <span class="tech-badge">Haskell</span>
+              </div>
+              <p>A compositional suite for evaluating program-synthesis tools.</p>
+              <a href="projects/project2.html" class="project-link">View Project</a>
+            </div>
+          </a>
+        </li>
+
+        <!-- Project 3 -->
+        <li class="project-card">
+          <a href="projects/project3.html">
+            <img src="images/project3-thumb.jpg" alt="Project 3 Thumbnail" class="project-img" />
+            <div class="project-info">
+              <div class="project-title">AutoMath</div>
+              <div style="margin:8px 0;">
+                <span class="tech-badge">Sympy</span>
+                <span class="tech-badge">LLM</span>
+              </div>
+              <p>A hybrid solver combining symbolic reasoning with neural suggestions.</p>
+              <a href="projects/project3.html" class="project-link">View Project</a>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8) Hobbies -->
+  <section id="hobbies">
+    <div class="container">
+      <h2 class="section-title fade-in">Hobbies</h2>
+      <ul class="hobbies-grid fade-in">
+        <!-- Hobby 1 -->
+        <li class="hobby-card">
+          <div class="hobby-icon">📸</div>
+          <p class="hobby-text">Photography</p>
+        </li>
+
+        <!-- Hobby 2 -->
+        <li class="hobby-card">
+          <div class="hobby-icon">🥾</div>
+          <p class="hobby-text">Hiking</p>
+        </li>
+
+        <!-- Hobby 3 -->
+        <li class="hobby-card">
+          <div class="hobby-icon">🍳</div>
+          <p class="hobby-text">Cooking</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 9) Scroll‐to‐Top Button -->
+  <button id="scrollTopBtn" title="Scroll to top">
+    <svg id="scrollProgress" width="56" height="56" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="45" stroke="rgba(0,0,0,0.1)" stroke-width="10" fill="none" />
+      <circle cx="50" cy="50" r="45" stroke="var(--accent-color)" stroke-width="10" fill="none"
+              stroke-dasharray="282.743" stroke-dashoffset="282.743" transform="rotate(-90 50 50)" />
+      <text x="50" y="54" text-anchor="middle" font-size="36" fill="#ffffff">↑</text>
+    </svg>
+  </button>
+
+  <!-- 10) Footer -->
+  <footer>
+    <p>© <span id="current-year"></span> Bethel Roger Hall. All rights reserved.</p>
+    <p>Last updated: <span id="last-updated"></span></p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- 11) Scripts -->
   <script>
-    // Hover effect for links (already inline on individual elements, but we ensure double safety if needed)
-    document.querySelectorAll('a').forEach(link => {
-      link.addEventListener('mouseover', () => link.style.borderBottomColor = '#3366cc');
-      link.addEventListener('mouseout', () => link.style.borderBottomColor = 'transparent');
+    // Dark Mode Toggle
+    const toggleBtn = document.getElementById('darkModeToggle');
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+      toggleBtn.textContent = '☀️';
+    }
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 
-    // Automatically set current year in the footer
+    // Auto‐set current year & last updated
     const now = new Date();
     document.getElementById('current-year').textContent = now.getFullYear();
-
-    // Automatically set "Last updated" to current month and year
     const monthNames = ["January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
     ];
-    const month = monthNames[now.getMonth()];
-    const year = now.getFullYear();
-    document.getElementById('last-updated').textContent = `${month} ${year}`;
+    document.getElementById('last-updated').textContent =
+      `${monthNames[now.getMonth()]} ${now.getFullYear()}`;
+
+    // Scroll‐to‐Top Button & Progress
+    const progressCircle = document.querySelector('#scrollProgress circle:nth-child(2)');
+    const pathLength = progressCircle.getTotalLength();
+    progressCircle.style.strokeDasharray = pathLength;
+    progressCircle.style.strokeDashoffset = pathLength;
+
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      const scrollPercentage = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      const draw = pathLength * (1 - scrollPercentage);
+      progressCircle.style.strokeDashoffset = draw;
+
+      if (scrollPercentage > 0.1) {
+        scrollBtn.classList.add('show');
+      } else {
+        scrollBtn.classList.remove('show');
+      }
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Fade‐In on Scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const options = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, options);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Typewriter effect on name
+    const nameEl = document.getElementById('nameText');
+    const fullName = "Bethel Roger Hall";
+    let idx = 0;
+    function typeWriter() {
+      if (idx < fullName.length) {
+        nameEl.textContent += fullName.charAt(idx++);
+        setTimeout(typeWriter, 120);
+      }
+    }
+    setTimeout(typeWriter, 600);
+
+    // Smart Greeting
+    const greetingEl = document.getElementById('greeting');
+    const hour = now.getHours();
+    let greetText = "Welcome!";
+    if (hour < 12) {
+      greetText = "Good morning!";
+    } else if (hour < 18) {
+      greetText = "Good afternoon!";
+    } else {
+      greetText = "Good evening!";
+    }
+    greetingEl.textContent = greetText + " Thanks for visiting.";
   </script>
 </body>
+
 </html>
