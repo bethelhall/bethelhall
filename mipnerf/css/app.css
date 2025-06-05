@@ -157,3 +157,13 @@ span.highlight {
 	margin-left: 0.5em;
 	margin-right: 0.5em;
 }
+
+.headshot {
+    width: 180px;           /* or adjust to your desired size */
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;     /* makes it elliptical/circular */
+    display: block;
+    margin: 0 auto 20px auto; /* center and add bottom space */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
