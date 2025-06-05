@@ -167,15 +167,28 @@
       transform: scale(1.05);
     }
 
+    .name-heading {
+      font-size: 2.5rem;       /* 45px */
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+
+    .amharic-name {
+      font-size: 1.5rem;       /* 27px */
+      margin-bottom: 16px;
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+    }
+
     .typewriter {
       display: inline-block;
       overflow: hidden;
       white-space: nowrap;
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;      /* 45px */
+      font-size: 2.5rem;       /* 45px */
       font-weight: 700;
       color: var(--text-color);
-      margin: 0;
+      margin-bottom: 16px;
       width: 0;
     }
 
@@ -189,7 +202,6 @@
       }
     }
 
-    /* 7) Greeting & Amharic Name */
     #greeting {
       margin: 16px 0;
       font-family: 'Playfair Display', serif;
@@ -197,11 +209,33 @@
       color: var(--text-color);
     }
 
-    .amharic-name {
-      margin: 16px 0;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
+    /* 7) Contact Icon Links */
+    .contact-icons {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .contact-icons a {
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       color: var(--text-color);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-icons a:hover {
+      color: var(--accent-color);
+    }
+
+    .contact-icons svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
     }
 
     /* 8) Links */
@@ -431,7 +465,7 @@
 
     /* 16) Responsive Adjustments */
     @media (max-width: 800px) {
-      html { font-size: 16px; }   /* slightly smaller on narrower screens */
+      html { font-size: 16px; }
       body { line-height: 1.5; }
 
       .intro-grid {
@@ -484,46 +518,67 @@
         <div class="intro-left">
           <img src="images/beth.jpg" alt="Photo of Bethel Hall" class="headshot" />
 
-          <!-- Typewriter Name -->
-          <p class="typewriter" id="nameText"></p>
+          <!-- English Full Name -->
+          <h1 class="name-heading">Bethel Roger Hall</h1>
+
+          <!-- Amharic Name directly beneath -->
+          <p class="amharic-name">ቤቴል ሮጀር ሆል</p>
+
+          <!-- Typewriter Name (repeats for emphasis) -->
+          <h2 class="typewriter" id="nameText"></h2>
 
           <!-- Smart Greeting -->
           <p id="greeting"></p>
 
-          <!-- Amharic Name -->
-          <p class="amharic-name">ቤቴል ሮጀር ሆል</p>
-
           <!-- Title -->
-          <p style="font-size:1rem; color: var(--text-color); margin-bottom:16px;">CS Ph.D. Student</p>
+          <p style="font-size:1rem; color: var(--text-color); margin: 24px 0 16px;">CS Ph.D. Student</p>
 
-          <!-- Affiliations -->
-          <p style="font-size:1rem; margin:0;">
-            <a href="https://www.stevens.edu/" target="_blank" rel="noopener noreferrer">Stevens Institute of Technology</a><br />
-            <a href="https://william-eiers.github.io/" target="_blank" rel="noopener noreferrer">Advisor: Prof. William Eiers</a>
-          </p>
+          <!-- Contact Icon Links -->
+          <div class="contact-icons" id="contact">
+            <!-- Email -->
+            <a href="mailto:bethelroger33@gmail.com" aria-label="Email">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M0 4a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm22 0H2v.511l10 6.212 10-6.212V4zM2 20V7.789l8.553 4.456c.204.124.444.124.648 0L22 7.789V20H2z" />
+              </svg>
+            </a>
+            <!-- CV (PDF) -->
+            <a href="data/Resume-BHall.pdf" target="_blank" rel="noopener noreferrer" aria-label="Curriculum Vitae">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M6 2h9l5 5v15H6V2zm1 2v15h10V7h-4V3H7zm3 2h4v2h-4V5zm0 4h4v2h-4V9zm0 4h4v2h-4v-2z" />
+              </svg>
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com/bethelhall" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 .5C5.648.5.5 5.648.5 12c0 5.084 3.292 9.396 7.868 10.92.576.107.786-.248.786-.552 0-.273-.01-1.003-.015-1.969-3.2.696-3.878-1.544-3.878-1.544-.523-1.333-1.277-1.688-1.277-1.688-1.044-.714.08-.7.08-.7 1.156.081 1.764 1.188 1.764 1.188 1.026 1.758 2.695 1.249 3.352.954.104-.742.401-1.249.73-1.537-2.556-.29-5.245-1.276-5.245-5.683 0-1.255.448-2.282 1.182-3.084-.119-.298-.513-1.495.113-3.114 0 0 .966-.309 3.165 1.182a11.013 11.013 0 0 1 2.876-.387c.975 0 1.957.132 2.876.387 2.197-1.491 3.161-1.182 3.161-1.182.628 1.619.232 2.816.114 3.114.737.802 1.18 1.829 1.18 3.084 0 4.418-2.692 5.392-5.258 5.681.413.355.781 1.077.781 2.172 0 1.568-.014 2.835-.014 3.222 0 .306.205.664.789.551C20.708 21.397 24 17.084 24 12c0-6.352-5.148-11.5-11.5-11.5z" />
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/bethelrogerhall" target="_blank" rel="noopener noreferrer"
+              aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20.447 20.452H16.9v-5.569c0-1.328-.027-3.036-1.849-3.036-1.849 0-2.132 1.442-2.132 2.935v5.67h-3.548V9h3.413v1.561h.049c.476-.9 1.637-1.85 3.369-1.85 3.602 0 4.267 2.371 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.069-.926-2.069-2.069S4.193 3.295 5.337 3.295s2.069.926 2.069 2.069-.925 2.069-2.069 2.069zm1.779 13.019H3.558V9h3.558v11.452zM9.6 9.69v11.81h5.16v-6.45c0-3.43 4.4-3.71 4.4 0v6.45h5.16v-7.94c0-6.58-7.27-6.34-9.56-3.1V9.69H9.6z" />
+              </svg>
+            </a>
+          </div>
         </div>
 
         <!-- RIGHT COLUMN -->
         <div class="intro-right">
           <h2 class="section-title fade-in">Biography</h2>
           <p class="fade-in" style="font-size:1rem; line-height:1.6; margin-top:0;">
-            I’m a CS Ph.D. student at <a href="https://www.stevens.edu/" target="_blank" rel="noopener noreferrer">Stevens Institute of Technology</a>,
-            advised by <a href="https://william-eiers.github.io/" target="_blank" rel="noopener noreferrer">Prof. William Eiers</a>. My research centers on neurosymbolic methods—
+            I’m a CS Ph.D. student at <a href="https://www.stevens.edu/" target="_blank"
+              rel="noopener noreferrer">Stevens Institute of Technology</a>,
+            advised by <a href="https://william-eiers.github.io/" target="_blank"
+              rel="noopener noreferrer">Prof. William Eiers</a>. My research centers on neurosymbolic methods—
             integrating large language models into formal verification workflows. I work at the intersection of machine
             learning, program synthesis, and automated reasoning to build systems that are both intelligent and verifiable.
           </p>
         </div>
-      </div>
-
-      <!-- Contact Links -->
-      <div style="text-align:center; margin-top:32px; font-size:1rem;" id="contact">
-        <a href="mailto:bethelroger33@gmail.com">Email</a>
-        <span style="color:#888; padding:0 0.5em;">/</span>
-        <a href="data/Resume-BHall.pdf">CV</a>
-        <span style="color:#888; padding:0 0.5em;">/</span>
-        <a href="https://x.com/bethel_roger" target="_blank">Twitter</a>
-        <span style="color:#888; padding:0 0.5em;">/</span>
-        <a href="https://github.com/bethelhall" target="_blank">GitHub</a>
       </div>
     </div>
   </section>
