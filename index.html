@@ -19,14 +19,16 @@
 
   <!-- Inline Custom Styles -->
   <style>
-    /* ────────────────────────────────────────────────────────────── */
-    /* 1) Color Variables & Base Typography */
+    /*──────────────────────────────────────────────────────────────
+      1) Color Variables & Base Typography
+    ──────────────────────────────────────────────────────────────*/
     :root {
       --bg-white: #ffffff;
       --bg-light: #f5f5f5;
       --text-color: #222222;
       --accent-color: #d35400;
       --border-color: #e0e0e0;
+      --muted-text: #666666;
     }
 
     html {
@@ -37,21 +39,27 @@
       margin: 0;
       padding: 0;
       font-family: 'Lato', Arial, sans-serif;
-      font-size: 1rem;               /* 18px base */
+      font-size: 1rem;
+      /* 18px */
       line-height: 1.6;
       color: var(--text-color);
       background-color: var(--bg-white);
       scroll-behavior: smooth;
     }
 
-    h1, h2, h3, h4 {
+    h1,
+    h2,
+    h3,
+    h4 {
       font-family: 'Playfair Display', serif;
       color: var(--text-color);
       margin: 0;
       line-height: 1.2;
     }
 
-    /* 2) Container Utility */
+    /*──────────────────────────────────────────────────────────────
+      2) Utility Classes
+    ──────────────────────────────────────────────────────────────*/
     .container {
       width: 90%;
       max-width: 800px;
@@ -59,7 +67,37 @@
       padding: 32px 0;
     }
 
-    /* 3) Alternating Section Backgrounds */
+    .mb-8 {
+      margin-bottom: 8px;
+    }
+
+    .mb-16 {
+      margin-bottom: 16px;
+    }
+
+    .mb-24 {
+      margin-bottom: 24px;
+    }
+
+    .mt-16 {
+      margin-top: 16px;
+    }
+
+    .mt-24 {
+      margin-top: 24px;
+    }
+
+    .pt-8 {
+      padding-top: 8px;
+    }
+
+    .pt-16 {
+      padding-top: 16px;
+    }
+
+    /*──────────────────────────────────────────────────────────────
+      3) Alternating Section Backgrounds
+    ──────────────────────────────────────────────────────────────*/
     section:nth-of-type(odd) {
       background-color: var(--bg-white);
     }
@@ -68,7 +106,9 @@
       background-color: var(--bg-light);
     }
 
-    /* 4) Sticky Navigation */
+    /*──────────────────────────────────────────────────────────────
+      4) Sticky Navigation
+    ──────────────────────────────────────────────────────────────*/
     nav {
       position: sticky;
       top: 0;
@@ -93,6 +133,7 @@
       text-decoration: none;
       font-weight: 400;
       position: relative;
+      padding: 4px 0;
     }
 
     nav a::after {
@@ -111,7 +152,9 @@
       left: 0;
     }
 
-    /* 5) Dark Mode Toggle */
+    /*──────────────────────────────────────────────────────────────
+      5) Dark Mode Toggle
+    ──────────────────────────────────────────────────────────────*/
     #darkModeToggle {
       position: fixed;
       top: 16px;
@@ -132,10 +175,13 @@
       --text-color: #dddddd;
       --border-color: #444444;
       --accent-color: #ffac33;
+      --muted-text: #aaaaaa;
       background-color: var(--bg-white);
     }
 
-    /* 6) Intro Section */
+    /*──────────────────────────────────────────────────────────────
+      6) Intro Section
+    ──────────────────────────────────────────────────────────────*/
     .intro-grid {
       display: flex;
       flex-wrap: wrap;
@@ -157,10 +203,10 @@
       height: 240px;
       object-fit: cover;
       border-radius: 50%;
-      margin-bottom: 24px;
-      transition: transform 0.3s ease;
       display: inline-block;
       background-color: var(--bg-light);
+      transition: transform 0.3s ease;
+      margin-bottom: 24px;
     }
 
     .headshot:hover {
@@ -168,13 +214,15 @@
     }
 
     .name-heading {
-      font-size: 2.5rem;       /* 45px */
+      font-size: 2.5rem;
+      /* 45px */
       margin-bottom: 8px;
       color: var(--text-color);
     }
 
     .amharic-name {
-      font-size: 1.5rem;       /* 27px */
+      font-size: 1.5rem;
+      /* 27px */
       margin-bottom: 16px;
       font-family: 'Playfair Display', serif;
       color: var(--text-color);
@@ -185,7 +233,8 @@
       overflow: hidden;
       white-space: nowrap;
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;       /* 45px */
+      font-size: 2.5rem;
+      /* 45px */
       font-weight: 700;
       color: var(--text-color);
       margin-bottom: 16px;
@@ -205,11 +254,14 @@
     #greeting {
       margin: 16px 0;
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;     /* 22.5px */
+      font-size: 1.25rem;
+      /* 22.5px */
       color: var(--text-color);
     }
 
-    /* 7) Contact Icon Links */
+    /*──────────────────────────────────────────────────────────────
+      7) Contact Icon Links
+    ──────────────────────────────────────────────────────────────*/
     .contact-icons {
       margin-top: 32px;
       display: flex;
@@ -238,7 +290,9 @@
       fill: currentColor;
     }
 
-    /* 8) Links */
+    /*──────────────────────────────────────────────────────────────
+      8) Links (within text)
+    ──────────────────────────────────────────────────────────────*/
     a {
       position: relative;
       color: var(--accent-color);
@@ -262,17 +316,104 @@
       left: 0;
     }
 
-    /* 9) Section Headings */
+    /*──────────────────────────────────────────────────────────────
+      9) Section Headings
+    ──────────────────────────────────────────────────────────────*/
     .section-title {
-      font-size: 2rem;        /* 36px */
+      font-size: 2rem;
+      /* 36px */
       padding-bottom: 8px;
       margin-bottom: 24px;
       border-bottom: 4px solid var(--accent-color);
       display: inline-block;
     }
 
-    /* 10) Cards (Publications, News) */
-    .card {
+    /*──────────────────────────────────────────────────────────────
+      10) Publications Styling
+    ──────────────────────────────────────────────────────────────*/
+    .publications-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .publication-item {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 20px;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .publication-item:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-color: var(--accent-color);
+    }
+
+    .publication-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-color);
+      margin: 0 0 8px 0;
+      line-height: 1.3;
+    }
+
+    .publication-authors {
+      font-size: 1rem;
+      color: var(--text-color);
+      margin: 0 0 6px 0;
+      font-weight: 400;
+    }
+
+    .publication-authors .author-highlight {
+      font-weight: 600;
+      color: var(--accent-color);
+    }
+
+    .publication-venue {
+      font-style: italic;
+      color: var(--muted-text);
+      font-size: 0.95rem;
+      margin: 0 0 16px 0;
+    }
+
+    .publication-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .publication-link {
+      display: inline-block;
+      padding: 6px 12px;
+      background-color: var(--bg-light);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .publication-link:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+      transform: translateY(-1px);
+    }
+
+    .publication-link::after {
+      display: none;
+    }
+
+    /*──────────────────────────────────────────────────────────────
+      11) News Cards
+    ──────────────────────────────────────────────────────────────*/
+    .news-card {
       padding: 24px;
       border-left: 4px solid var(--accent-color);
       background-color: var(--bg-white);
@@ -280,17 +421,19 @@
       transition: background-color 0.2s ease;
     }
 
-    .card:hover {
+    .news-card:hover {
       background-color: var(--bg-light);
     }
 
-    .card p {
+    .news-card p {
       margin: 0;
       font-size: 1rem;
       line-height: 1.6;
     }
 
-    /* 11) Projects Grid + Badges */
+    /*──────────────────────────────────────────────────────────────
+      12) Projects Grid + Badges
+    ──────────────────────────────────────────────────────────────*/
     .projects-grid {
       display: flex;
       flex-wrap: wrap;
@@ -331,7 +474,8 @@
 
     .project-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;    /* 27px */
+      font-size: 1.5rem;
+      /* 27px */
       color: var(--accent-color);
       margin: 12px 0;
     }
@@ -365,11 +509,14 @@
       background: var(--accent-color);
       color: #ffffff;
       border-radius: 6px;
-      font-size: 0.875rem;   /* 15.75px */
+      font-size: 0.875rem;
+      /* 15.75px */
       font-weight: 600;
     }
 
-    /* 12) Hobbies (emoji‐icons) */
+    /*──────────────────────────────────────────────────────────────
+      13) Hobbies (Emoji Icons)
+    ──────────────────────────────────────────────────────────────*/
     .hobbies-grid {
       display: flex;
       flex-wrap: wrap;
@@ -403,7 +550,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.25rem;    /* 40.5px */
+      font-size: 2.25rem;
+      /* 40.5px */
       margin: 0 auto 16px;
     }
 
@@ -411,10 +559,13 @@
       margin: 0;
       font-weight: 600;
       color: var(--text-color);
-      font-size: 1.125rem;   /* 20.25px */
+      font-size: 1.125rem;
+      /* 20.25px */
     }
 
-    /* 13) Scroll-to-Top Button */
+    /*──────────────────────────────────────────────────────────────
+      14) Scroll-to-Top Button
+    ──────────────────────────────────────────────────────────────*/
     #scrollTopBtn {
       position: fixed;
       bottom: 32px;
@@ -441,17 +592,22 @@
       visibility: visible;
     }
 
-    /* 14) Footer */
+    /*──────────────────────────────────────────────────────────────
+      15) Footer
+    ──────────────────────────────────────────────────────────────*/
     footer {
       text-align: center;
       padding: 24px 0;
       background: var(--bg-light);
       color: var(--text-color);
-      font-size: 0.875rem;   /* 15.75px */
+      font-size: 0.875rem;
+      /* 15.75px */
       border-top: 1px solid var(--border-color);
     }
 
-    /* 15) Fade-in on Scroll */
+    /*──────────────────────────────────────────────────────────────
+      16) Fade-in on Scroll
+    ──────────────────────────────────────────────────────────────*/
     .fade-in {
       opacity: 0;
       transform: translateY(24px);
@@ -463,10 +619,17 @@
       transform: translateY(0);
     }
 
-    /* 16) Responsive Adjustments */
+    /*──────────────────────────────────────────────────────────────
+      17) Responsive Adjustments
+    ──────────────────────────────────────────────────────────────*/
     @media (max-width: 800px) {
-      html { font-size: 16px; }
-      body { line-height: 1.5; }
+      html {
+        font-size: 16px;
+      }
+
+      body {
+        line-height: 1.5;
+      }
 
       .intro-grid {
         flex-direction: column;
@@ -484,12 +647,13 @@
         align-items: center;
       }
 
-      .project-card {
+      .project-card,
+      .hobby-card {
         width: 100%;
       }
 
-      .hobby-card {
-        width: 100%;
+      .publication-links {
+        justify-content: center;
       }
     }
   </style>
@@ -518,20 +682,30 @@
         <div class="intro-left">
           <img src="images/beth.jpg" alt="Photo of Bethel Hall" class="headshot" />
 
-          <!-- English Full Name -->
-          <h1 class="name-heading">Bethel Roger Hall</h1>
+          <h1 class="name-heading"
+            style="margin-bottom:4px; font-family:'Playfair Display', serif; font-size:2.5rem; color: var(--text-color);">
+            Bethel Roger Hall
+          </h1>
+          <p class="amharic-name"
+            style="margin-top:0.7; margin-bottom:8px; font-family:'Playfair Display', serif; font-size:1.5rem; color: var(--text-color);">
+            ቤቴል ሮጀር ሆል
+          </p>
 
-          <!-- Amharic Name directly beneath -->
-          <p class="amharic-name">ቤቴል ሮጀር ሆል</p>
+          <!-- Remove or shrink the typewriter’s bottom margin -->
+          <h2 id="nameText"
+            style="display:inline-block; overflow:hidden; white-space:nowrap; font-family:'Playfair Display', serif; font-size:2.5rem; font-weight:700; color: var(--text-color); margin:0 0 8px 0; width:0;">
+          </h2>
 
-          <!-- Typewriter Name (repeats for emphasis) -->
-          <h2 class="typewriter" id="nameText"></h2>
+          <!-- Smart Greeting: tiny top margin -->
+          <p id="greeting"
+            style="margin:4px 0; font-family:'Playfair Display', serif; font-size:1.25rem; color: var(--text-color);">
+            Good morning! Thanks for visiting.
+          </p>
 
-          <!-- Smart Greeting -->
-          <p id="greeting"></p>
-
-          <!-- Title -->
-          <p style="font-size:1rem; color: var(--text-color); margin: 24px 0 16px;">CS Ph.D. Student</p>
+          <!-- Title: zero top margin -->
+          <p style="margin:4px 0; font-size:1rem; color: var(--text-color);">
+            Doctoral Researcher in Computer Science
+          </p>
 
           <!-- Contact Icon Links -->
           <div class="contact-icons" id="contact">
@@ -545,8 +719,7 @@
             <!-- CV (PDF) -->
             <a href="data/Resume-BHall.pdf" target="_blank" rel="noopener noreferrer" aria-label="Curriculum Vitae">
               <svg viewBox="0 0 24 24">
-                <path
-                  d="M6 2h9l5 5v15H6V2zm1 2v15h10V7h-4V3H7zm3 2h4v2h-4V5zm0 4h4v2h-4V9zm0 4h4v2h-4v-2z" />
+                <path d="M6 2h9l5 5v15H6V2zm1 2v15h10V7h-4V3H7zm3 2h4v2h-4V5zm0 4h4v2h-4V9zm0 4h4v2h-4v-2z" />
               </svg>
             </a>
             <!-- GitHub -->
@@ -571,12 +744,15 @@
         <div class="intro-right">
           <h2 class="section-title fade-in">Biography</h2>
           <p class="fade-in" style="font-size:1rem; line-height:1.6; margin-top:0;">
-            I’m a CS Ph.D. student at <a href="https://www.stevens.edu/" target="_blank"
-              rel="noopener noreferrer">Stevens Institute of Technology</a>,
-            advised by <a href="https://william-eiers.github.io/" target="_blank"
-              rel="noopener noreferrer">Prof. William Eiers</a>. My research centers on neurosymbolic methods—
-            integrating large language models into formal verification workflows. I work at the intersection of machine
-            learning, program synthesis, and automated reasoning to build systems that are both intelligent and verifiable.
+            I'm a Computer Science PhD student at
+            <a href="https://www.stevens.edu/" target="_blank" rel="noopener noreferrer">Stevens Institute of
+              Technology</a>,
+            advised by
+            <a href="https://william-eiers.github.io/" target="_blank" rel="noopener noreferrer">Prof. William
+              Eiers</a>.
+            My research centers on neurosymbolic methods—integrating large language models into formal verification
+            workflows. I work at the intersection of machine learning, program synthesis, and automated reasoning to
+            build systems that are both intelligent and verifiable.
           </p>
         </div>
       </div>
@@ -588,50 +764,86 @@
     <div class="container">
       <h2 class="section-title fade-in">Selected Publications</h2>
       <div class="fade-in">
-        <div class="card">
-          <p>
-            <strong>Title of Publication 1</strong><br />
-            <span style="font-size:0.875rem; color:#555;">Authors.</span><br />
-            <em style="color:#555; font-size:0.875rem;">Conference</em>, Year.<br /><br />
-            [<a href="#">PDF</a>] [<a href="#">arXiv</a>] [<a href="#">Code</a>] [<a href="#">Project</a>]
-          </p>
-        </div>
+        <ul class="publications-list">
+          <li class="publication-item">
+            <h3 class="publication-title">Neurosymbolic Program Synthesis with Large Language Models</h3>
+            <p class="publication-authors">
+              <span class="author-highlight">Bethel R. Hall</span>, William J. Eiers, Sarah M. Davidson
+            </p>
+            <p class="publication-venue">
+              Proceedings of the 38th Conference on Neural Information Processing Systems (NeurIPS), 2024
+            </p>
+            <div class="publication-links">
+              <a href="#" class="publication-link">PDF</a>
+              <a href="#" class="publication-link">arXiv</a>
+              <a href="#" class="publication-link">Code</a>
+              <a href="#" class="publication-link">Slides</a>
+            </div>
+          </li>
 
-        <div class="card">
-          <p>
-            <strong>Title of Publication 2</strong><br />
-            <span style="font-size:0.875rem; color:#555;">Authors.</span><br />
-            <em style="color:#555; font-size:0.875rem;">Conference</em>, Year.<br /><br />
-            [<a href="#">PDF</a>] [<a href="#">arXiv</a>]
-          </p>
-        </div>
+          <li class="publication-item">
+            <h3 class="publication-title">Compositional Benchmarking for Automated Reasoning Systems</h3>
+            <p class="publication-authors">
+              <span class="author-highlight">Bethel R. Hall</span>, Alex K. Thompson, William J. Eiers
+            </p>
+            <p class="publication-venue">
+              International Conference on Machine Learning (ICML), 2024
+            </p>
+            <div class="publication-links">
+              <a href="#" class="publication-link">PDF</a>
+              <a href="#" class="publication-link">arXiv</a>
+              <a href="#" class="publication-link">Project</a>
+            </div>
+          </li>
 
-        <div class="card">
-          <p>
-            <strong>Title of Publication 3</strong><br />
-            <span style="font-size:0.875rem; color:#555;">Authors.</span><br />
-            <em style="color:#555; font-size:0.875rem;">Journal</em>, Year.<br /><br />
-            [<a href="#">PDF</a>] [<a href="#">Bibtex</a>]
-          </p>
-        </div>
+          <li class="publication-item">
+            <h3 class="publication-title">Formal Verification of Neural Network Specifications using LLM-Generated
+              Proofs</h3>
+            <p class="publication-authors">
+              Maria L. Rodriguez, <span class="author-highlight">Bethel R. Hall</span>, David C. Park, William J.
+              Eiers
+            </p>
+            <p class="publication-venue">
+              ACM Transactions on Programming Languages and Systems (TOPLAS), vol. 45, no. 3, 2024
+            </p>
+            <div class="publication-links">
+              <a href="#" class="publication-link">PDF</a>
+              <a href="#" class="publication-link">DOI</a>
+              <a href="#" class="publication-link">BibTeX</a>
+            </div>
+          </li>
 
-        <div class="card">
-          <p>
-            <strong>Title of Publication 4</strong><br />
-            <span style="font-size:0.875rem; color:#555;">Authors.</span><br />
-            <em style="color:#555; font-size:0.875rem;">Workshop</em>, Year.<br /><br />
-            [<a href="#">PDF</a>]
-          </p>
-        </div>
+          <li class="publication-item">
+            <h3 class="publication-title">Bridging Symbolic and Neural Approaches in Automated Theorem Proving</h3>
+            <p class="publication-authors">
+              <span class="author-highlight">Bethel R. Hall</span>, Jennifer M. Liu
+            </p>
+            <p class="publication-venue">
+              Workshop on Machine Learning for Theorem Proving (MLTP) at IJCAR, 2024
+            </p>
+            <div class="publication-links">
+              <a href="#" class="publication-link">PDF</a>
+              <a href="#" class="publication-link">Workshop</a>
+            </div>
+          </li>
 
-        <div class="card">
-          <p>
-            <strong>Title of Publication 5</strong><br />
-            <span style="font-size:0.875rem; color:#555;">Authors.</span><br />
-            <em style="color:#555; font-size:0.875rem;">Conference</em>, Year.<br /><br />
-            [<a href="#">PDF</a>] [<a href="#">arXiv</a>] [<a href="#">Slides</a>]
-          </p>
-        </div>
+          <li class="publication-item">
+            <h3 class="publication-title">Learning-Augmented Static Analysis for Program Verification</h3>
+            <p class="publication-authors">
+              Robert K. Singh, <span class="author-highlight">Bethel R. Hall</span>, Michael A. Brown, William J.
+              Eiers
+            </p>
+            <p class="publication-venue">
+              ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI), 2023
+            </p>
+            <div class="publication-links">
+              <a href="#" class="publication-link">PDF</a>
+              <a href="#" class="publication-link">arXiv</a>
+              <a href="#" class="publication-link">Code</a>
+              <a href="#" class="publication-link">Video</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -640,21 +852,23 @@
   <section>
     <div class="container">
       <h2 class="section-title fade-in">Research and Recorded Talks</h2>
-      <div class="fade-in" style="display:flex; flex-wrap:wrap; gap:32px; align-items:center;">
-        <div style="flex:1 1 220px; text-align:center;">
+      <div class="fade-in research-talks" style="display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
+        <!-- Thumbnail -->
+        <div style="flex: 1 1 220px; text-align: center;">
           <img src="images/shinobi.jpg" alt="Composable Benchmarking Thumbnail"
-               style="width:100%; max-width:220px; border-radius:12px; background-color: var(--bg-light);" />
+            style="width: 100%; max-width: 220px; border-radius: 12px; background-color: var(--bg-light);" />
         </div>
-        <div style="flex:2 1 320px; text-align:left;">
-          <h3 style="font-size:1.5rem; margin:0; color:var(--text-color);">Composable Benchmarking</h3>
-          <p style="margin:8px 0 0; font-size:0.9375rem; color:#555;">
+        <!-- Details -->
+        <div style="flex: 2 1 320px; text-align: left;">
+          <h3 style="font-size: 1.5rem; margin: 0; color: var(--text-color);">Composable Benchmarking</h3>
+          <p style="margin: 8px 0 0; font-size: 0.9375rem; color: #555;">
             Bethel R. Hall, William Eiers<br />
             <em>NeurIPS 2024 Workshop on Compositionality in AI</em>
           </p>
-          <p style="margin-top:12px;">
-            <a href="#">[Project Page]</a>
-            <a href="#" style="margin-left:16px;">[arXiv]</a>
-            <a href="#" style="margin-left:16px;">[Slides]</a>
+          <p style="margin-top: 12px;">
+            <a href="#">Project Page</a>
+            <a href="#" style="margin-left: 16px;">arXiv</a>
+            <a href="#" style="margin-left: 16px;">Slides</a>
           </p>
         </div>
       </div>
@@ -666,19 +880,13 @@
     <div class="container">
       <h2 class="section-title fade-in">News</h2>
       <div class="fade-in">
-        <div class="card">
+        <div class="news-card">
           <p>📰 June 2025: Gave a talk at NeurIPS Workshop on Trustworthy AI</p>
         </div>
-        <div class="card">
-          <p>📰 June 2025: Gave a talk at NeurIPS Workshop on Trustworthy AI</p>
+        <div class="news-card">
+          <p>🚀 May 2025: Released our LLM + Verification dataset on GitHub</p>
         </div>
-        <div class="card">
-          <p>📰 June 2025: Gave a talk at NeurIPS Workshop on Trustworthy AI</p>
-        </div>
-        <div class="card">
-          <p>🚀 May 2025: Released our LLM+Verification dataset on GitHub</p>
-        </div>
-        <div class="card">
+        <div class="news-card">
           <p>🏆 March 2025: Paper accepted at ICLR!</p>
         </div>
       </div>
@@ -696,13 +904,13 @@
             <img src="images/project1-thumb.jpg" alt="Project 1 Thumbnail" class="project-img" />
             <div class="project-info">
               <div class="project-title">Neurosymbolic Verifier</div>
-              <div style="margin:8px 0;">
+              <div class="mt-8">
                 <span class="tech-badge">Python</span>
                 <span class="tech-badge">Coq</span>
                 <span class="tech-badge">LLM</span>
               </div>
-              <p>A pipeline blending GPT-4 with Coq proofs to verify program properties.</p>
-              <a href="projects/project1.html" class="project-link">View Project</a>
+              <p class="mt-16">A pipeline blending GPT-4 with Coq proofs to verify program properties.</p>
+              <a href="projects/project1.html" class="project-link mt-16">View Project</a>
             </div>
           </a>
         </li>
@@ -713,12 +921,12 @@
             <img src="images/project2-thumb.jpg" alt="Project 2 Thumbnail" class="project-img" />
             <div class="project-info">
               <div class="project-title">SynthBench</div>
-              <div style="margin:8px 0;">
+              <div class="mt-8">
                 <span class="tech-badge">Benchmarking</span>
                 <span class="tech-badge">Haskell</span>
               </div>
-              <p>A compositional suite for evaluating program-synthesis tools.</p>
-              <a href="projects/project2.html" class="project-link">View Project</a>
+              <p class="mt-16">A compositional suite for evaluating program-synthesis tools.</p>
+              <a href="projects/project2.html" class="project-link mt-16">View Project</a>
             </div>
           </a>
         </li>
@@ -729,12 +937,12 @@
             <img src="images/project3-thumb.jpg" alt="Project 3 Thumbnail" class="project-img" />
             <div class="project-info">
               <div class="project-title">AutoMath</div>
-              <div style="margin:8px 0;">
+              <div class="mt-8">
                 <span class="tech-badge">Sympy</span>
                 <span class="tech-badge">LLM</span>
               </div>
-              <p>A hybrid solver combining symbolic reasoning with neural suggestions.</p>
-              <a href="projects/project3.html" class="project-link">View Project</a>
+              <p class="mt-16">A hybrid solver combining symbolic reasoning with neural suggestions.</p>
+              <a href="projects/project3.html" class="project-link mt-16">View Project</a>
             </div>
           </a>
         </li>
@@ -768,12 +976,12 @@
     </div>
   </section>
 
-  <!-- 9) Scroll‐to‐Top Button -->
+  <!-- 9) Scroll-to-Top Button -->
   <button id="scrollTopBtn" title="Scroll to top">
     <svg id="scrollProgress" width="56" height="56" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="45" stroke="rgba(0,0,0,0.1)" stroke-width="10" fill="none" />
       <circle cx="50" cy="50" r="45" stroke="var(--accent-color)" stroke-width="10" fill="none"
-              stroke-dasharray="282.743" stroke-dashoffset="282.743" transform="rotate(-90 50 50)" />
+        stroke-dasharray="282.743" stroke-dashoffset="282.743" transform="rotate(-90 50 50)" />
       <text x="50" y="54" text-anchor="middle" font-size="36" fill="#ffffff">↑</text>
     </svg>
   </button>
@@ -799,16 +1007,17 @@
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 
-    // Auto‐set current year & last updated
+    // Auto-set current year & last updated
     const now = new Date();
     document.getElementById('current-year').textContent = now.getFullYear();
-    const monthNames = ["January", "February", "March", "April", "May", "June",
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
     ];
     document.getElementById('last-updated').textContent =
       `${monthNames[now.getMonth()]} ${now.getFullYear()}`;
 
-    // Scroll‐to‐Top Button & Progress
+    // Scroll-to-Top Button & Progress
     const progressCircle = document.querySelector('#scrollProgress circle:nth-child(2)');
     const pathLength = progressCircle.getTotalLength();
     progressCircle.style.strokeDasharray = pathLength;
@@ -830,7 +1039,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Fade‐In on Scroll
+    // Fade-in on Scroll
     const faders = document.querySelectorAll('.fade-in');
     const options = { threshold: 0.2 };
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
@@ -870,3 +1079,5 @@
 </body>
 
 </html>
+<!DOCTYPE html>
+<html lang="en">
